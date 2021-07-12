@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nunito&display=swap');
+
+:root {
+    --primary-color: #a9ddff;
+    --secondary-color: #f7e2f1;
+    --third-color: #fed4e6;
+    --max-width: 960px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    /*font-family: 'Nunito', sans-serif;*/
+    background: var(--secondary-color);
+    overflow-x: hidden;
+    padding-bottom: 3rem;
+}
+
+#main-header {
+    background: var(--primary-color);
+    padding: 4rem 0;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.material-icons {
+    vertical-align: -14%;
+}
+
+.pin {
+    vertical-align: -36%;
+}
+
+
+h1 {
+    font-size: 2.3rem;
+}
+
+#timeline ul {
+    background: var(--secondary-color);
+    padding: 3rem;
+}
+
+#timeline ul li {
+    list-style: none;
+    position: relative;
+    width: .375rem;
+    margin: 0 auto;
+    padding-top: 3rem;
+    background: white;
+}
+
+/* Boxes */
+#timeline ul li div {
+    position: relative;
+    border-radius: .3125rem;
+    bottom: 0;
+    width: 25rem;
+    padding: 1.5rem;
+    background: var(--primary-color);
+    transition: all 0.5s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Right side (odd)*/
+#timeline ul li:nth-child(odd) div {
+    left: 2.5rem;
+    transform: translate(200px, 0);
+}
+
+/* Left side (even)*/
+#timeline ul li:nth-child(even) div {
+    left: -27.125rem;
+     transform: translate(-200px, 0);
+}
+
+/* Show Boxes JS Dom "show class" anim*/
+#timeline ul li.show div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+#timeline ul li.show:after {
+    background: var(--primary-color);
+}
+
+/* Dots */
+#timeline ul li:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 4.5rem;
+    width: 1.5625rem;
+    height: 1.5625rem;
+    background: inherit;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    transition: background 0.5s ease-in-out;
+}
+
+@media(max-width: 900px) {
+    #timeline ul li div {
+        width: 250px;
+    }
+    
+    #timeline ul li:nth-child(even) div {
+        left: -17.75rem
+    }
+}
+
+@media(max-width: 600px) {
+    #timeline ul li {
+        margin-left: 20px;
+    }
+
+    #timeline ul li div {
+        width: calc(100vw - 165px);
+    }
+
+     #timeline ul li:nth-child(even) div {
+         left: 40px;
+     }
+}
